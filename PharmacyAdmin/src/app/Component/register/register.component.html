@@ -1,0 +1,36 @@
+<main id="main">
+    <br/>
+    <br/>
+    <br/>
+        <section class="section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+                        <h2 class="text-center  p-3">Join Us</h2>
+                        <form  #frm="ngForm" (ngSubmit)="register()">
+                            <div class="form-group">
+                                <!-- <label for="">user Name</label> -->
+                                <!-- <input  type="text" #message="ngModel" [(ngModel)]="message" id="message" name="message" value="" /> -->
+                                <input type="text" #Name="ngModel" [class.is-invalid]="Name.invalid && Name.touched" [class.is-valid]="Name.invalid" [(ngModel)]="user.name" minlength="3" required name="user.name" id="user.name" class="form-control input" placeholder="user Name" (input)="ErrorHandle()">
+                                <div *ngIf="Name.invalid && Name.touched"  class="alert alert-danger"> UserName must be More 3 </div>
+                            </div>
+                              <div class="form-group">
+                                <!-- <label for="">Password</label> -->
+                                <input type="password" required minlength="6" #Password="ngModel" [class.is-invalid]="Password.invalid && Password.touched" [class.is-valid]="Password.invalid"  name="user.Password" [(ngModel)]="user.Password" id="user.Password" class=" form-control input" placeholder="Password"  (input)="ErrorHandle()">
+                                <div *ngIf="Password.invalid && Password.touched" class="alert alert-danger"> Password Required and must be More 6 </div>
+                            </div>
+                              <div class="form-group">
+                                <!-- <label for="">Confirm Password</label> -->
+                                <input type="password" minlength="6" #Confirmpassword="ngModel" [class.is-invalid]="Confirmpassword.invalid && Confirmpassword.touched || Confirmpassword.value !== Password.value" [class.is-valid]="Confirmpassword.invalid"  name="user.ConfirmPassword" [(ngModel)]="user.Confirmpassword" required  id="user.ConfirmPassword" class=" form-control input" placeholder="Confirm Password"  (input)="ErrorHandle()">
+                                 <div *ngIf="Confirmpassword.invalid && Confirmpassword.touched || Confirmpassword.value !== Password.value"  class="alert alert-danger"> Password and ConfirmPassword must be Equal and More 6 </div>
+                              </div>
+                           
+                              <button type="submit"  [disabled]="frm.invalid || Confirmpassword.value !== Password.value" class="btn btn-primary btn-lg btn-block">
+                                  Sign Up
+                              </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>

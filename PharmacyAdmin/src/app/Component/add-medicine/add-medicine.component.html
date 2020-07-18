@@ -1,0 +1,34 @@
+        <section class="section">
+                <div class="row justify-content-center">
+                    <div class="col-md-7">
+                        <h2 class="text-center">New Medicine</h2>
+                        <form  #frm="ngForm" (ngSubmit)="add()">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <input type="text" #EName="ngModel" [class.is-invalid]="EName.invalid && EName.touched" [class.is-valid]="EName.invalid" [(ngModel)]="med.EnglishName" minlength="3" required name="med.EnglishName" id="med.EnglishName" class="form-control input" placeholder="English Name">
+                                        <div *ngIf="EName.invalid && EName.touched"  class="alert alert-danger"> English Name must be More 3 </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" #AName="ngModel" [class.is-invalid]="AName.invalid && AName.touched" [class.is-valid]="AName.invalid" [(ngModel)]="med.ArabicName" minlength="3" required name="med.ArabicName" id="med.ArabicName" class="form-control input" placeholder="Arabic Name">
+                                        <div *ngIf="AName.invalid && AName.touched"  class="alert alert-danger"> Arabic Name must be More 3 </div>
+                                    </div>
+                                </div>
+                               <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="number" #Price="ngModel" [class.is-invalid]="Price.invalid && Price.touched" [class.is-valid]="Price.invalid" [(ngModel)]="med.Price" min="0" required name="med.Price" id="med.Price" class="form-control input" placeholder="Price">
+                                    <div *ngIf="Price.invalid && Price.touched"  class="alert alert-danger"> Price Is Required </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="number" #Quantity="ngModel" [class.is-invalid]="Quantity.invalid && Quantity.touched" [class.is-valid]="Quantity.invalid" [(ngModel)]="med.Quantity" min="0" required name="med.Quantity" id="med.Quantity" class="form-control input" placeholder="Quantity">
+                                    <div *ngIf="Quantity.invalid && Quantity.touched"  class="alert alert-danger"> Quantity Is Required </div>
+                                </div>
+                               </div>
+                            </div>
+                           
+                              <button type="submit"  [disabled]="frm.invalid" class="btn btn-primary btn-lg btn-block m-2">
+                                ADD  </button>
+                        </form>
+                    </div>
+                </div>
+        </section>
