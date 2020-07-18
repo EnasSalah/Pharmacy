@@ -1,0 +1,30 @@
+<main id="main">
+<br/>
+<br/>
+<br/>
+
+<section class="inner-page">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-7">
+                <form #frm="ngForm" (ngSubmit)="login()">
+                    <div class="form-group">
+                      <!-- <label for="">User Name</label> -->
+                      <input type="text" [(ngModel)]="user.username" required name="User.UserName" id="" class="form-control" placeholder="User Name" aria-describedby="helpId">
+                      <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="">Passsword</label> -->
+                        <input type="password" [(ngModel)]="user.Password" required name="User.Password" id="" class="form-control" placeholder="Passsword" aria-describedby="helpId">
+                        <!-- <small id="helpId" class="text-muted">Help text</small> -->
+                    </div>
+                    <button type="submit" [disabled]="frm.invalid" class="btn btn-primary btn-lg btn-block">Log in</button>
+                    <p class="text-gray">Don't Have an Account? </p>
+                    <button [routerLink]="['/register']" routerLinkActive="router-link-active"  class="btn btn-light btn-lg btn-block">sign Up</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</main>
